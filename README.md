@@ -7,30 +7,30 @@ Encrypted SQL storage
 они не должны узнать данные пользователей.
 С использованием только стандартных PHP библиотек.
 
-Phones encrypted storage.
+Phones encrypted storage.  
 
-That page shows a sample of an encrypted storage.
-Requires SQLite and PDO (they are enabled by default in PHP since 5.1).
-Requires internet connection because jQuery is loaded from Google storage.
+That page shows a sample of an encrypted storage.  
+Requires SQLite and PDO (they are enabled by default in PHP since 5.1).  
+Requires internet connection because jQuery is loaded from Google storage.  
 
-The task: to create a sample of an encrypted storage with the provided design (the design of the web page is provided as an image).
-The user can store phone by email and retrieve it later via email.
-Use only default PHP libs.
+The task: to create a sample of an encrypted storage with the provided design (the design of the web page is provided as an image).  
+The user can store phone by email and retrieve it later via email.  
+Use only default PHP libs.  
 
-Architecture:
-Classes:
-DB - simple PDO connector to SQLite, the connection is static, meaning, for all instances of the class the connection will be the same.
-As IPhonesStorageDBConnect it should have high level methods which PhoneStorageEntry calls:
-store
-getPhoneByEmail
-getSpecifiedError
+Architecture:  
+Classes:  
+DB - simple PDO connector to SQLite, the connection is static, meaning, for all instances of the class the connection will be the same.  
+As IPhonesStorageDBConnect it should have high level methods which PhoneStorageEntry calls:  
+store  
+getPhoneByEmail  
+getSpecifiedError  
 
-PhoneStorageEntry - an item. Has an instance of IPhonesStorageDBConnect class and stores/retrieves data from database via its methods.
-Public functions:
-save
-load
-validateEmail
-validatePhone
-getError
+PhoneStorageEntry - an item. Has an instance of IPhonesStorageDBConnect class and stores/retrieves data from database via its methods.  
+Public functions:  
+save  
+load  
+validateEmail  
+validatePhone  
+getError  
 
 PhoneStorageTaskController - main controller that process data, renders views and responds to ajax calls.
